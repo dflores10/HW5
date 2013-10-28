@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 
-    <link rel="stylesheet" type="text/css" href="./StyleSheet.css"
+    <link rel="stylesheet" type="text/css" href="./StyleSheet.css" />
 
 </head>
 <body>
@@ -23,9 +23,13 @@
 
         <div id="menu">
 
-            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="horizontal"></asp:Menu>
+            <ul id="menulist">
+                <li><a href="./Default.aspx">Home</a></li>
+                <li><a href="./NRecipe.aspx">New Recipe</a></li>
+                <li><a href="./AboutUs.aspx">About Us</a></li>
+                <li><a href="./ContactUs.aspx">Contact</a></li>
+            </ul>
 
-            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" showstartingnode="false" />
 
         </div>
 
@@ -38,7 +42,7 @@
         </div>
         <div id="footer">
 
-            Copyright 2013. 6K:183 Software Design & Development
+            &copy 2013. 6K:183 Software Design & Development
 
         </div>
     </div>

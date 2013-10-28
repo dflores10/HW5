@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Default.aspx.vb" Inherits="gridview" %>
+﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="NRecipe.aspx.vb" Inherits="RDetailsView" %>
 
 <!DOCTYPE html>
 
@@ -26,14 +26,16 @@
                 <li><a href="./AboutUs.aspx">About Us</a></li>
                 <li><a href="./ContactUs.aspx">Contact</a></li>
             </ul>
+
         </div>
 
         <div id="main">
-    
-        <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Wicked Easy Recipes.mdb" 
+        
+
+        <asp:AccessDataSource ID="AccessDataSource1" runat="server" DataFile="~/App_Data/Wicked Easy Recipes.mdb"
             DeleteCommand="DELETE FROM [Recipes] WHERE [RecipeID] = ?" 
             InsertCommand="INSERT INTO [Recipes] ([RecipeName], [Submitter], [Ingredient1], [Ingredient2], [Ingredient3], [Ingredient4], [Ingredient5], [Preparation], [Notes]) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)" 
-            SelectCommand="SELECT * FROM [Recipes]" 
+            SelectCommand="SELECT * FROM [Recipes] WHERE ([RecipeID] = ?)" 
             UpdateCommand="UPDATE [Recipes] SET [RecipeName] = ?, [Submitter] = ?, [Ingredient1] = ?, [Ingredient2] = ?, [Ingredient3] = ?, [Ingredient4] = ?, [Ingredient5] = ?, [Preparation] = ?, [Notes] = ? WHERE [RecipeID] = ?">
             <DeleteParameters>
                 <asp:Parameter Name="RecipeID" Type="Int32" />
@@ -49,6 +51,9 @@
                 <asp:Parameter Name="Preparation" Type="String" />
                 <asp:Parameter Name="Notes" Type="String" />
             </InsertParameters>
+            <SelectParameters>
+                <asp:QueryStringParameter Name="RecipeID" QueryStringField="RecipeID" Type="Int32" />
+            </SelectParameters>
             <UpdateParameters>
                 <asp:Parameter Name="RecipeName" Type="String" />
                 <asp:Parameter Name="Submitter" Type="String" />
@@ -63,24 +68,31 @@
             </UpdateParameters>
         </asp:AccessDataSource>
         <br />
-        <asp:GridView 
-            ID="GridView1" 
+        <asp:DetailsView 
+            ID="DetailsView1" 
             runat="server" 
-            AllowPaging="True" 
-            AllowSorting="True"
-            AutoGenerateColumns="False" 
+            AutoGenerateRows="False" 
             DataKeyNames="RecipeID" 
             DataSourceID="AccessDataSource1" 
-            PageSize="5"
-            Gridlines="None"
-            CssClass="cssgridview">
-
-            <Columns>
+            DefaultMode="Insert"
+            CssClass="cssdetailsview"
+            HeaderText="Enter New Recipe"
+            HeaderStyle-CssClass="header"
+            FieldHeaderStyle-CssClass="fieldheader" 
+            ItemStyle-CssClass="item">
+            <Fields>
                 <asp:BoundField DataField="RecipeName" HeaderText="Recipe Name" SortExpression="RecipeName" />
                 <asp:BoundField DataField="Submitter" HeaderText="Submitted By" SortExpression="Submitter" />
-                <asp:HyperLinkField DataNavigateUrlFields="RecipeID" DataNavigateUrlFormatString="RecipeDetails.aspx?RecipeID={0}" Text="Select" />
-            </Columns>
-        </asp:GridView>
+                <asp:BoundField DataField="Ingredient1" HeaderText="Ingredient #1" SortExpression="Ingredient1" />
+                <asp:BoundField DataField="Ingredient2" HeaderText="Ingredient #2" SortExpression="Ingredient2" />
+                <asp:BoundField DataField="Ingredient3" HeaderText="Ingredient #3" SortExpression="Ingredient3" />
+                <asp:BoundField DataField="Ingredient4" HeaderText="Ingredient #4" SortExpression="Ingredient4" />
+                <asp:BoundField DataField="Ingredient5" HeaderText="Ingredient #5" SortExpression="Ingredient5" />
+                <asp:BoundField DataField="Preparation" HeaderText="Preparation" SortExpression="Preparation" />
+                <asp:BoundField DataField="Notes" HeaderText="Notes" SortExpression="Notes" />
+                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+            </Fields>
+        </asp:DetailsView>
         <br />
         </div>
         <div id="footer">

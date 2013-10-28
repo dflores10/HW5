@@ -4,7 +4,7 @@
       
         <siteMapNode url="~/default.aspx" title="Home"  description="" />
       
-        <siteMapNode url="~/NewRecipe.aspx" title="New Recipe"  description="" />
+        <siteMapNode url="~/NRecipe.aspx" title="New Recipe"  description="" />
     
         <siteMapNode url="~/AboutUs.aspx" title="About Us"  description="" />
     

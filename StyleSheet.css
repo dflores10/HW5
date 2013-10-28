@@ -1,1 +1,52 @@
-﻿#container { background: #D2B48C;}
+﻿.cssgridview { width: 100%; background-color: #F08080; border:solid 2px white; margin: 5px 0 10px 0}
+.cssgridview td { padding:10px; border:solid 1px white; color:white}
+.cssgridview td a { color: #696969;}
+.cssgridview th {padding: 4px 2px; color: #696969; background-color: #FFFF99;}
+.cssgridview th a {color:#696969; text-decoration:none}
+.cssgridview th a:hover {color:F08080; text-decoration:underline;}
+
+.cssdetailsview {background-color:white; border:solid 2px black;}
+.cssdeatilsview td {padding:10px; border:solid 2px black; color:#FFFF99}
+.cssdetailsview .header td {padding:10px; border:solid 2px black; background-color:#696969; color:white;}
+.cssdetailsview .fieldheader {color:black; background-color:white; text-align:right; width:150px; border: solid 1px black}
+.cssdetailsview .command {background: #F08080;text-align:center}
+.cssdetailsview .command td {text-align:center}
+.cssdetailsview .command a {color:#FFFF99; text-decoration:none; }
+.cssdetailsview .command a:hover {color:#696969; text-decoration:underline; }
+.cssdetailsview .item {color:#FFFF99; border:solid 2px black;text-align:left;}
+
+#container { background: #D2B48C; margin: 0 auto; border: solid 5px black; text-align:center}
+
+#menu { background: #FFFF99; padding:20px; color:#696969}
+
+#main {margin-left:500px; margin-right:500px;
+    height: 530px;
+    width: 340px;
+    margin-top: 0px;
+}
+
+#footer {background: #FFFF99; padding:20px; color:#696969}
+
+a:link, a:visited { color:#F08080;}
+a:hover, a:active { color: #696969; background-color:#FFFF99;text-decoration:none}
+
+/*Fat Erik's Pipelist*/
+#menulist {list-style: none;padding: 0;margin: 0;}
+
+#menulist li {display: inline;padding: 0;margin: 0;}
+
+#menulist li:before { content: "| "; }
+#menulist li:first-child:before { content: ""; }
+
+/*IE workaround*/
+/*All IE browsers*/
+* html #menulist li {border-left: 1px solid black;padding: 0 0.4em 0 0.4em;margin: 0 0.4em 0 -0.4em;}
+
+/*Win IE browsers - hide from Mac IE\*/
+* html #menulist { height: 1%; }
+
+* html #menulist li {display: block;float: left;}
+
+/*End hide*/
+/*Mac IE 5*/
+* html #menulist li:first-child { border-left: 0; }
